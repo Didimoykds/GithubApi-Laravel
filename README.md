@@ -1,5 +1,8 @@
 # GithubApi-Laravel
-Using Laravel to consult Github user WEB API
+<p>
+  Using <strong>Laravel 5.5</strong> to consult Github user WEB API, used Ajax, 
+  Jquery and some blade techniques to keep the integrity and a clean code.
+</p>
 
 Requirements:
 <ol>
