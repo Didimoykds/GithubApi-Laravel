@@ -1,5 +1,8 @@
 # GithubApi-Laravel
-Using Laravel to consult Github user WEB API
+<p>
+  Using <strong>Laravel 5.5</strong> to consult Github user WEB API, used Ajax, 
+  Jquery and some blade techniques to keep a clean code.
+</p>
 
 Requirements:
 <ol>
@@ -39,5 +42,5 @@ Commands :
   </li>
 </ol>
 <p>
-  Now probably the application is running on http://localhost:8000, you are free to use, but i configured the application just to retrieve the profile pic, if you want to retrieve more information feel free to modify the ajax method.
+  Now probably the application is running on http://localhost:8000, you are free to use, but i configured the application just to retrieve the profile pic, bio, username, name and URL, if you want to retrieve more information feel free to modify the ajax method.
 </p>
