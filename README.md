@@ -42,5 +42,5 @@ Commands :
   </li>
 </ol>
 <p>
-  Now probably the application is running on http://localhost:8000, you are free to use, but i configured the application just to retrieve the profile pic, bio, username, name and URL, if you want to retrieve more information feel free to modify the ajax method.
+  Now probably the application is running on http://localhost:8000, you are free to use, but i configured the application just to retrieve the profile pic, bio, username, name and URL, if you want to retrieve more information feel free to modify. 
 </p>
