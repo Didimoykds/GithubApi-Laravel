@@ -5,6 +5,10 @@ var github_web = function (){
         dataType: "json",
         success: function(data) {
             $("#profilePic").attr("src",data.avatar_url);
+            $("#name").text(data.name);
+            $("#login").text(data.login);
+            $("#bio").text(data.bio);
+            $("#url").html("<a href=''"+data.url+"'>"+data.url+"</a>");
             console.log(data);
             return data;
         },
