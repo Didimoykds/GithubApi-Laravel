@@ -23,20 +23,27 @@ class IpController extends Controller
         }
     }
 
+    protected function curlIp($ip)
+    {
+        $url="http://ip-api.com/json/".$ip;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$url);
+        $result=curl_exec($ch);
+        print $result;
+    }
+
     protected function getIpInformation(Request $request)
     {
         $elbSubnet = '172.31.0.0/16';
         Request::setTrustedProxies([$elbSubnet]);
-        $info['ip'] = $this->getIp();
-        if( isset($info['ip']) ){
-            $geoip = new GeoIP();
-            $geoip->setIp($ip);
-            $info['lat'] = $geoip->getLatitude();
-            $info['lon'] = $geoip->getLongitude();
+        $ip = $this->getIp();
+        if($ip){
+            $info = $this->curlIp($info['ip']);
             return ['ip' => $ip, 'local' => $info];
         } else {
             return ['message' => "Not found"];
         }
+
     }
 
     public function getView()
