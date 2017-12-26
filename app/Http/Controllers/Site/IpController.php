@@ -37,9 +37,9 @@ class IpController extends Controller
         $elbSubnet = '172.31.0.0/16';
         Request::setTrustedProxies([$elbSubnet]);
         $ip = $this->getIp();
-        if($ip){
-            $info = $this->curlIp($info['ip']);
-            return ['ip' => $ip, 'local' => $info];
+        if($ip)
+        $info = $this->curlIp($ip);
+        return ['ip' => $ip, 'local' => $info];
         } else {
             return ['message' => "Not found"];
         }
