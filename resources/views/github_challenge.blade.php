@@ -4,8 +4,16 @@
 <div class="flex-center position-ref full-height">
     <div class="content">
         <div class="container">
-            <div class="col-md-3">
-                <img style="height:200px; width:200px;padding:2px;border:solid 2px;" id="profilePic" />
+            <div class="row">
+                <div class="col-md-4">
+                    <img style="height:200px; width:200px;padding:2px;border:solid 2px;" id="profilePic" />
+                </div>
+                <div class="col-md-4 text-left">
+                    <p><b>Name :</b> <span id="name"> </span></p>
+                    <p><b>UserName :</b> <span id="login"> </span></p>
+                    <p><b>Bio :</b> <span id="bio"> </span></p>
+                    <p><b>URL :</b> <span id="url"> </span></p>
+                </div>
             </div>
         </div>
         <hr>
