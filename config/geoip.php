@@ -59,8 +59,7 @@ return [
         | Check out pro here: https://signup.ip-api.com/
         |
         */
-        // 'key' => env('GEOIP_IPAPI_KEY'),
-        'key' => env('177.206.144.151'),
+        'key' => env('GEOIP_IPAPI_KEY'),
 
         /*
         |--------------------------------------------------------------------------
