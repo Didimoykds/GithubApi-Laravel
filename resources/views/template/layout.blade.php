@@ -78,5 +78,8 @@
         -->
     </body>
 </html>
+<script src="{{asset('js/jquery-3.2.1.js')}}"></script>
+<script src="{{asset('js/jquery.mask.min.js')}}"></script>
 <script src="{{asset('js/github.js')}}"></script>
-<script src="{{ asset('js/jquery-3.2.1.js') }}"></script>
+<script src="{{asset('js/cep.js')}}"></script>
+<script src="{{asset('js/masks.js')}}"></script>

@@ -10,6 +10,7 @@
         <div class="links">
             <a href="{{route('get_github')}}">Consult Github</a>
             <a href="{{route('get_ip')}}">Consult Ip</a>
+            <a href="{{route('get_cep')}}">Consult Cep Address</a>
         </div>
     </div>
 </div>
