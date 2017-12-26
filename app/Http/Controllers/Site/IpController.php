@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Controllers\Controller;
 use View;
 
@@ -16,7 +16,7 @@ class IpController extends Controller
 
     protected function getIpInformation(Request $request)
     {
-        $ip = $request->ip();
+        $ip = Request::ip();
         dd($ip);
     }
 
