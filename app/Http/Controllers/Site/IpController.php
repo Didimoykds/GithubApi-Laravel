@@ -31,7 +31,7 @@ class IpController extends Controller
     {
         $elbSubnet = '172.31.0.0/16';
         Request::setTrustedProxies([$elbSubnet]);
-        $clientIp = $request->ip();
+        $clientIp = $this->getTheIp();
         dd($clientIp);
     }
 
