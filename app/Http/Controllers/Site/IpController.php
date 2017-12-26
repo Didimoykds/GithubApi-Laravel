@@ -28,8 +28,10 @@ class IpController extends Controller
         $url="http://ip-api.com/json/".$ip;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$url);
-        $result=curl_exec($ch);
-        print $result;
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($response);
     }
 
     protected function getIpInformation(Request $request)
@@ -37,13 +39,7 @@ class IpController extends Controller
         $elbSubnet = '172.31.0.0/16';
         Request::setTrustedProxies([$elbSubnet]);
         $ip = $this->getIp();
-        if($ip)
-        $info = $this->curlIp($ip);
-        return ['ip' => $ip, 'local' => $info];
-        } else {
-            return ['message' => "Not found"];
-        }
-
+        return $this->curlIp($ip);
     }
 
     public function getView()
@@ -54,7 +50,7 @@ class IpController extends Controller
     public function getLocalInformation(Request $request)
     {
         $information = $this->getIpInformation($request);
-        return View::make('descubra_ip', ['information' => $information]);
+        return View::make('descubra_ip')->with('information', $information);
     }
 
 }

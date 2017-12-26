@@ -4,12 +4,11 @@
 <div class="flex-center position-ref full-height">
     <div class="content">
         @if(isset($information))
-            <div >
+            <p>
             @foreach($information as $key => $info)
-                <div style="border:0.5px solid; border-radius:5px;" class="panel-body"><p style="padding:0px;"><b>{{$key}}:</b> {{$info}}</p></div>
-                <br/>
+            <strong>{{$key}}:</strong>  {{$info}}</br>
             @endforeach
-            </div>
+            </p>
         @endif
         <div class="row">
             <div class="col-md-12" style="margin-bottom:20px">
@@ -22,6 +21,8 @@
                 <a class="btn btn-primary" href="{{route('home')}}">return</a>
             </div>
         </div>
+        <br/>
+        <p>Using a web service for retrieving ip information, thanks to <a href="ip-api.com">ip-api.com</a></p>
     </div>
 </div>
 @endsection
