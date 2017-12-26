@@ -20,8 +20,8 @@
         <div class="form-group">
             <input class ="form-control text-center" id="username" placeholder="Github User" />
         </div>
-        <a class="btn btn-primary" href="{{route('home')}}">Voltar</a>
-        <a class="btn btn-secondary" onclick="github_web()">Pesquisar!</a>
+        <a class="btn btn-primary" href="{{route('home')}}">Return</a>
+        <a class="btn btn-secondary" onclick="github_web()">Search!</a>
     </div>
 </div>
 @endsection
