@@ -18,4 +18,4 @@ Route::get('/', function () {
 Route::get('/github', 'Site\GithubController@getView')->name('get_github');
 
 Route::get('/ip', 'Site\IpController@getView')->name('get_ip');
-Route::post('/ip', 'Site\IpController@getIp');
+Route::post('/ip', 'Site\IpController@getLocalInformation');

@@ -3,7 +3,13 @@
 @section('content')
 <div class="flex-center position-ref full-height">
     <div class="content">
-        @if(isset($ip))
+        @if(isset($information))
+            <div >
+            @foreach($information as $key => $info)
+                <div style="border:0.5px solid; border-radius:5px;" class="panel-body"><p style="padding:0px;"><b>{{$key}}:</b> {{$info}}</p></div>
+                <br/>
+            @endforeach
+            </div>
         @endif
         <div class="row">
             <div class="col-md-12" style="margin-bottom:20px">

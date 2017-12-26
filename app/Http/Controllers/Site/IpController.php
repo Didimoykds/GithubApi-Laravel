@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PulkitJalan\GeoIP\GeoIP;
 use View;
 
 class IpController extends Controller
 {
 
-    public function getTheIp(){
+    protected function getIp(){
         foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){
             if (array_key_exists($key, $_SERVER) === true){
                 foreach (explode(',', $_SERVER[$key]) as $ip){
@@ -22,23 +23,31 @@ class IpController extends Controller
         }
     }
 
+    protected function getIpInformation(Request $request)
+    {
+        $elbSubnet = '172.31.0.0/16';
+        Request::setTrustedProxies([$elbSubnet]);
+        $info['ip'] = $this->getIp();
+        if( isset($info['ip']) ){
+            $geoip = new GeoIP();
+            $geoip->setIp($ip);
+            $info['lat'] = $geoip->getLatitude();
+            $info['lon'] = $geoip->getLongitude();
+            return ['ip' => $ip, 'local' => $info];
+        } else {
+            return ['message' => "Not found"];
+        }
+    }
+
     public function getView()
     {
         return view('descubra_ip');
     }
 
-    protected function getIpInformation(Request $request)
+    public function getLocalInformation(Request $request)
     {
-        $elbSubnet = '172.31.0.0/16';
-        Request::setTrustedProxies([$elbSubnet]);
-        $clientIp = $this->getTheIp();
-        dd($clientIp);
-    }
-
-    public function getIp(Request $request)
-    {
-        $ip = $this->getIpInformation($request);
-        return View::make('descubra_ip', $ip);
+        $information = $this->getIpInformation($request);
+        return View::make('descubra_ip', ['information' => $information]);
     }
 
 }

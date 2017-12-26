@@ -176,7 +176,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        PulkitJalan\GeoIP\GeoIPServiceProvider::class,
+
 
     ],
 
@@ -226,6 +227,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'GeoIP' => PulkitJalan\GeoIP\Facades\GeoIP::class,
 
     ],
 
