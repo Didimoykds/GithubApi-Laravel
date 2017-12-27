@@ -1,6 +1,6 @@
 # GithubApi-Laravel
  <p>
-   Using <strong>Laravel 5.5</strong> to consult Github user WEB API, used Ajax, 
+   Using <strong>Laravel 5.5</strong> to consult Github user/Via(Cep)/Ip-api API's, used Ajax, 
    Jquery and some Laravel and blade methods to keep a clean code.
  </p>
  
